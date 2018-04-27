@@ -16,8 +16,6 @@ RUN rm -rf /tmp/_build_tdlib/
 
 FROM alpine:3.7
 
-COPY --from=builder /usr/local/lib/libtdjson* /usr/local/lib/
-COPY --from=builder /usr/local/lib/libtdclient.a /usr/local/lib/
-COPY --from=builder /usr/local/lib/libtdcore.a /usr/local/lib/
+COPY --from=builder /usr/local/lib/libtd* /usr/local/lib/
 
 RUN apk update && apk add gperf openssl-dev git cmake
